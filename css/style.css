@@ -1,0 +1,195 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & MOBILE-FIRST LAYOUT
+   ========================================================================== */
+:root {
+  --bg-color: #f4f7f6;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --primary-color: #0056b3;
+}
+
+html {
+  scroll-behavior: smooth; /* Extra #3: Smooth scrolling */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Navigation */
+nav {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+nav .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav .nav-links li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Extra #4: CSS Hover Transitions */
+}
+
+nav .nav-links a:hover {
+  color: #ffeb3b;
+}
+
+/* Header / About */
+header {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: var(--card-bg);
+  border-bottom: 2px solid #ddd;
+}
+
+/* Projects Section (Mobile First - 1 Column) */
+#projects {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#projects h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease; /* Extra #4: Interactive CSS */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-top: 2px solid #ddd;
+}
+
+/* ==========================================================================
+   2. RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+/* Tablet View */
+@media screen and (min-width: 772px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+  }
+  
+  nav .logo {
+    margin-bottom: 0;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop View */
+@media screen and (min-width: 992px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   3. EXTRA #1: DARK MODE (prefers-color-scheme)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #f1f1f1;
+    --card-bg: #1e1e1e;
+    --primary-color: #bb86fc;
+  }
+  
+  nav {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #333;
+  }
+  
+  .tag {
+    color: #121212;
+  }
+  
+  header, footer {
+    border-color: #333;
+  }
+}
+
+/* ==========================================================================
+   4. EXTRA #2: REDUCED MOTION (prefers-reduced-motion)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  .card {
+    transition: none !important;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+}
